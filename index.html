@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blood Donation Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="bubble-container">
+        <span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span>
+    </div>
+
+    <h1 class="heartbeat">🩸 Blood Donation Platform</h1>
+    <p>Donate Blood, Save Lives</p>
+</header>
+
+<!-- DONOR MODAL -->
+<div id="donorModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <h2>Become a Blood Donor ❤️</h2>
+
+        <input type="email" id="email" placeholder="Email (for account)">
+        <input type="password" id="password" placeholder="Password">
+        <input type="text" id="name" placeholder="Full Name">
+        <input type="text" id="phone" placeholder="Phone Number">
+
+        <input
+            type="text"
+            id="bloodGroup"
+            placeholder="Select Blood Group"
+            readonly
+            onclick="openBloodChart('bloodGroup')"
+        >
+
+        <input type="text" id="city" placeholder="City">
+
+        <button type="button" onclick="registerDonor()">Register</button>
+
+        <!-- ✅ SUCCESS MESSAGE -->
+        <div id="successMessage" style="display:none; margin-top:15px;">
+            <h3 style="color:green;">✅ Data saved successfully</h3>
+            <p><b>Name:</b> <span id="showName"></span></p>
+            <p><b>Blood Group:</b> <span id="showBlood"></span></p>
+            <p><b>City:</b> <span id="showCity"></span></p>
+        </div>
+
+        <p class="hint">Close this if you are requesting blood urgently.</p>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+
+    
+    <div class="card">
+        <h2>🔔 Notifications for Donors</h2>
+        <ul>
+            <li>No notifications yet</li>
+        </ul>
+    </div>
+<div class="card emergency">
+    <h2>🚨 Emergency Blood Request</h2>
+
+    <input type="text" id="reqName" placeholder="Patient Name">
+
+    <input
+        type="text"
+        id="reqBlood"
+        placeholder="Select Blood Group"
+        readonly
+        onclick="openBloodChart('reqBlood')"
+    >
+
+    <input type="text" id="reqCity" placeholder="Hospital / City">
+    <input type="text" id="reqPhone" placeholder="Contact Number">
+
+    <button onclick="addRequest()">Submit Request</button>
+
+    <!-- ✅ SUCCESS MESSAGE -->
+    <div id="requestMessage" style="display:none; margin-top:10px;">
+        ✅ Request submitted successfully
+    </div>
+</div>
+
+</div>
+
+<footer>
+    <p>IDT Project | 1st Year Engineering Students</p>
+</footer>
+
+<!-- BLOOD GROUP CHART -->
+<div id="bloodChartModal" class="blood-modal">
+    <div class="blood-content">
+        <h2>🩸 Select Blood Group</h2>
+
+        <div class="blood-grid">
+            <button onclick="selectBloodGroup('A+')">A+</button>
+            <button onclick="selectBloodGroup('A-')">A-</button>
+            <button onclick="selectBloodGroup('B+')">B+</button>
+            <button onclick="selectBloodGroup('B-')">B-</button>
+            <button onclick="selectBloodGroup('AB+')">AB+</button>
+            <button onclick="selectBloodGroup('AB-')">AB-</button>
+            <button onclick="selectBloodGroup('O+')">O+</button>
+            <button onclick="selectBloodGroup('O-')">O-</button>
+        </div>
+
+        <button class="close-chart" onclick="closeBloodChart()">Close</button>
+    </div>
+</div>
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+
+<script src="script.js"></script>
+</body>
+</html>

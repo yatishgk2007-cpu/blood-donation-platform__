@@ -1,0 +1,175 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+}
+
+/* HEADER */
+header {
+    position: relative;
+    background: linear-gradient(180deg, #b71c1c, #c62828);
+    color: white;
+    padding: 40px 20px 20px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* HEARTBEAT */
+.heartbeat {
+    animation: heartbeat 2s infinite;
+}
+@keyframes heartbeat {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* WATER BUBBLES */
+.bubble-container {
+    position: absolute;
+    inset: 0;
+}
+.bubble-container span {
+    position: absolute;
+    bottom: -40px;
+    width: 18px;
+    height: 18px;
+    background: rgba(255,255,255,0.35);
+    border-radius: 50%;
+    animation: bubble 7s infinite ease-in;
+}
+.bubble-container span:nth-child(1){left:10%;}
+.bubble-container span:nth-child(2){left:25%;animation-duration:9s;}
+.bubble-container span:nth-child(3){left:40%;width:25px;height:25px;}
+.bubble-container span:nth-child(4){left:55%;animation-duration:6s;}
+.bubble-container span:nth-child(5){left:70%;}
+.bubble-container span:nth-child(6){left:80%;animation-duration:8s;}
+.bubble-container span:nth-child(7){left:90%;}
+.bubble-container span:nth-child(8){left:50%;width:30px;height:30px;}
+
+@keyframes bubble {
+    0% { transform: translateY(0); opacity: 0.6; }
+    100% { transform: translateY(-160px); opacity: 0; }
+}
+
+/* MODAL */
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+.modal-content {
+    background: white;
+    width: 340px;
+    padding: 25px;
+    border-radius: 12px;
+}
+.close {
+    float: right;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+/* MAIN */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 20px;
+}
+.card {
+    background: white;
+    width: 320px;
+    margin: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.1);
+}
+.emergency {
+    border-left: 6px solid red;
+}
+
+input, button {
+    width: 100%;
+    padding: 9px;
+    margin: 6px 0;
+}
+
+button {
+    background: #c62828;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+li {
+    background: #ffecec;
+    margin: 6px 0;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+/* BLOOD GROUP MODAL */
+.blood-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 2000;
+}
+.blood-content {
+    background: white;
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 20px 20px 0 0;
+}
+.blood-grid {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 10px;
+}
+.blood-grid button {
+    background: #c62828;
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+}
+.close-chart {
+    margin-top: 10px;
+    background: #444;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #eee;
+}
+
+/* ✅ SUCCESS MESSAGE (ONLY ADDITION) */
+#successMessage {
+    display: none;
+    background: #e8f5e9;
+    border: 1px solid #2e7d32;
+    border-radius: 8px;
+    padding: 10px;
+    margin-top: 12px;
+}
+
+#successMessage h3 {
+    margin: 0 0 6px;
+    color: #2e7d32;
+    font-size: 15px;
+}
+
+#successMessage p {
+    margin: 4px 0;
+    font-size: 14px;
+}
